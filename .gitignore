@@ -1,0 +1,14 @@
+node_modules
+dist
+out
+.vite
+.turbo
+coverage
+*.log
+.DS_Store
+apps/desktop/dist
+apps/desktop/dist-electron
+apps/desktop/out
+.codex/
+.codex-code/
+.agents/

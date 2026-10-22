@@ -1,0 +1,19 @@
+{
+  "name": "codex-code",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Visual IDE shell for Codex CLI",
+  "packageManager": "pnpm@10.12.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @codex-code/desktop",
+    "build": "npm run build --workspaces",
+    "dist:linux": "pnpm --filter @codex-code/desktop dist:linux",
+    "dist:deb": "pnpm --filter @codex-code/desktop dist:deb",
+    "typecheck": "npm run typecheck --workspaces",
+    "lint": "npm run lint --workspaces"
+  }
+}
