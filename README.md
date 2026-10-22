@@ -6,21 +6,30 @@
 Локальное превью renderer: пустой проект, без запуска Codex, терминала и LSP. [Полный размер](docs/portfolio/screenshot.png).
 <!-- portfolio-card:end -->
 
-Desktop IDE shell around the OpenAI Codex CLI: file tree, Monaco editor, integrated terminal, side chat with the agent, diff preview before applying edits, clickable file citations, and project templates with `AGENTS.md` scaffolding. Electron + React, the agent itself is the stock `codex` binary spawned as a subprocess.
+Работать с кодом и обсуждать изменения с агентом в одном окне. CodexCode объединяет дерево проекта, редактор Monaco, терминал и боковой чат с Codex CLI. Изменения можно посмотреть в diff, а ссылки из ответов ведут к файлам.
 
+Задача проекта: дать локальному CLI-агенту рабочее окружение, в котором видны и диалог, и редактируемый проект. Electron-приложение запускает установленный `codex` отдельным процессом и разбирает поток его событий.
 
-## What is inside
+## Что показывает репозиторий
 
-| Package | Role |
+Интерфейс на React связан с файловыми сервисами, терминалом xterm/node-pty и небольшим LSP-клиентом через IPC-контракты. Мастер проекта использует шаблоны с заготовками `AGENTS.md`.
+
+**Статус:** прототип. На карточке показан локальный renderer с пустым проектом; работа Codex, терминала и LSP этим скриншотом не подтверждается. Открытые задачи перечислены в `TODO.md`.
+
+Обсудить похожий проект: [sh3l.beer](https://sh3l.beer).
+
+## Компоненты
+
+| Пакет | Назначение |
 |---|---|
-| `apps/desktop` | Electron app (electron-vite): main process, preload bridge, React renderer, xterm terminal, node-pty |
-| `packages/core` | Codex adapter (spawns `codex`, parses its JSON event stream), workspace and file services, diff engine, chat state, a small LSP client, IPC contracts |
-| `packages/ui` | React components: file tree, side chat, diff panel, project wizard, top bar |
-| `packages/templates` | Project templates and `AGENTS.md` presets |
+| `apps/desktop` | Electron-приложение на electron-vite: основной процесс, preload, React renderer и терминал xterm/node-pty |
+| `packages/core` | адаптер Codex и разбор JSON-событий, сервисы файлов и workspace, diff, состояние чата, LSP-клиент и IPC-контракты |
+| `packages/ui` | компоненты React: дерево файлов, чат, diff, мастер проекта и верхняя панель |
+| `packages/templates` | шаблоны проектов и пресеты `AGENTS.md` |
 
-## Run
+## Запуск
 
-Requires Node 22+, pnpm and an authenticated `codex` CLI on PATH.
+Нужны Node 22+, pnpm и авторизованный `codex` CLI в PATH.
 
 ```bash
 pnpm install
@@ -29,10 +38,10 @@ pnpm run typecheck
 pnpm run dist:linux                        # AppImage in apps/desktop/dist/
 ```
 
-## Status
+## Статус
 
-Working prototype. Open items are in `TODO.md`; the original spec (RU) is `docs/techtask.md`.
+Прототип. Открытые задачи находятся в `TODO.md`, исходное техническое задание в `docs/techtask.md`.
 
-## License
+## Лицензия
 
 MIT
