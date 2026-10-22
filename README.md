@@ -1,5 +1,11 @@
 # CodexCode
 
+<!-- portfolio-card:start -->
+[![CodexCode — Код, терминал и AI-диалог в одном рабочем пространстве.](docs/portfolio/card.png)](docs/portfolio/screenshot.png)
+
+Локальное превью renderer: пустой проект, без запуска Codex, терминала и LSP. [Полный размер](docs/portfolio/screenshot.png).
+<!-- portfolio-card:end -->
+
 Desktop IDE shell around the OpenAI Codex CLI: file tree, Monaco editor, integrated terminal, side chat with the agent, diff preview before applying edits, clickable file citations, and project templates with `AGENTS.md` scaffolding. Electron + React, the agent itself is the stock `codex` binary spawned as a subprocess.
 
 
